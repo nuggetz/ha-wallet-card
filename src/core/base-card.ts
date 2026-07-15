@@ -30,6 +30,16 @@ export abstract class WalletBaseCard<
     return 3;
   }
 
+  /** GUI editor (shared across all cards; adapts fields to the card type). */
+  public static getConfigElement(): HTMLElement {
+    return document.createElement("ha-wallet-card-editor");
+  }
+
+  /** Minimal stub inserted when the card is picked; HA adds `type`. */
+  public static getStubConfig(): Record<string, unknown> {
+    return {};
+  }
+
   protected override updated(changed: PropertyValues): void {
     super.updated(changed);
     if (changed.has("hass") && this.hass && this.trackGood()) {

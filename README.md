@@ -16,6 +16,18 @@ This is the companion front-end for the `ha_wallet` custom component. Install th
 [integration](https://github.com/nuggetz/ha-wallet) first — the cards read its
 `sensor.wallet_by_budgetbakers_*` entities and call its `ha_wallet.*` services.
 
+## Preview
+
+<p align="center">
+  <img src="assets/showcase-spending.png" alt="Spending gauge card" height="320" />
+  &nbsp;
+  <img src="assets/showcase-expenses-structure.png" alt="Expenses Structure donut card" height="320" />
+  &nbsp;
+  <img src="assets/showcase-quick-add.png" alt="Quick-Add keypad card" height="320" />
+</p>
+<p align="center"><sub><em>A taste of the set — the Spending gauge, the Expenses Structure donut,
+and the Quick-Add keypad. All 21 cards are listed below.</em></sub></p>
+
 ---
 
 ## Requirements

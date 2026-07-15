@@ -8,6 +8,9 @@
 
 import { CARD_VERSION } from "./const";
 
+// GUI editor (shared by all cards via getConfigElement)
+import "./editor/card-editor";
+
 // Analytic (12)
 import "./analytic/cash-flow-card";
 import "./analytic/cash-flow-trend-card";
@@ -70,9 +73,15 @@ const CARDS: CardMeta[] = [
 window.customCards = window.customCards ?? [];
 for (const c of CARDS) {
   window.customCards.push({
-    type: `custom:${c.type}`,
+    // Bare element name — HA prepends "custom:" itself when building the picker
+    // preview. Prefixing here would double it ("custom:custom:…") and the
+    // preview fails with "Custom element not found".
+    type: c.type,
     name: c.name,
     description: c.description,
+    // Live preview in the picker. Works now that getStubConfig() provides a
+    // valid stub config (the earlier spinner was HA unable to build a preview
+    // without a stub, not the preview flag itself).
     preview: true,
     documentationURL: DOC,
   });

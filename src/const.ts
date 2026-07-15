@@ -17,14 +17,21 @@ export const DEVICE_NAME = "Wallet by BudgetBakers";
 /** Prefix of the real, built entity ids. */
 export const ENTITY_PREFIX = "sensor.wallet_by_budgetbakers_";
 
-/** Singleton sensor keys (unique_id `<entry_id>_<key>`). */
+/**
+ * Singleton sensor entity-id suffixes. NOTE: the real suffix is the entity
+ * *name* slugified (has_entity_name), which for translated sensors can differ
+ * from the component's internal translation_key. Verified against the shipped
+ * strings.json: most names match their key, but `spending_by_cardinality` is
+ * named "Spending by nature" → `spending_by_nature`, and `api_usage` is
+ * "API requests remaining" → `api_requests_remaining`.
+ */
 export const KEY = {
   cashFlow: "cash_flow",
   spending: "spending",
-  spendingByCardinality: "spending_by_cardinality",
+  spendingByCardinality: "spending_by_nature",
   lastRecords: "last_records",
   creditUtilization: "credit_utilization",
-  apiUsage: "api_usage",
+  apiUsage: "api_requests_remaining",
   standingOrders: "standing_orders",
   recordRules: "record_rules",
   categories: "categories",

@@ -39,19 +39,33 @@ export function walletEntityIds(hass: HomeAssistant): string[] {
   return [...ids];
 }
 
-/** Resolve one singleton sensor by its key, honoring an explicit override. */
+/**
+ * Resolve one singleton sensor by its entity-id suffix, honoring an explicit
+ * override. `attrMatch` is a robustness net: if the slug lookup fails (entity
+ * renamed, or the name slug differs from what we guessed / was localized), the
+ * sensor is identified by a set of attributes only it carries (e.g. the
+ * cardinality sensor's must/need/want).
+ */
 export function findSingleton(
   hass: HomeAssistant,
   key: string,
   override?: string,
+  attrMatch?: string[],
 ): HassEntity | undefined {
   if (override && hass.states[override]) return hass.states[override];
   const direct = hass.states[ENTITY_PREFIX + key];
   if (direct) return direct;
-  // Registry fallback: match by unique-id suffix pattern in the entity id.
+  // Match by entity-id suffix among the device's entities.
   const suffix = `_${key}`;
   for (const id of walletEntityIds(hass)) {
     if (id.endsWith(suffix) && hass.states[id]) return hass.states[id];
+  }
+  // Attribute-based fallback: robust to naming / localization.
+  if (attrMatch?.length) {
+    for (const id of walletEntityIds(hass)) {
+      const st = hass.states[id];
+      if (st && attrMatch.every((a) => a in st.attributes)) return st;
+    }
   }
   return undefined;
 }
@@ -85,7 +99,7 @@ export const singleton = {
   cashFlow: (h: HomeAssistant, o?: string) => findSingleton(h, KEY.cashFlow, o),
   spending: (h: HomeAssistant, o?: string) => findSingleton(h, KEY.spending, o),
   spendingByCardinality: (h: HomeAssistant, o?: string) =>
-    findSingleton(h, KEY.spendingByCardinality, o),
+    findSingleton(h, KEY.spendingByCardinality, o, ["must", "need", "want"]),
   lastRecords: (h: HomeAssistant, o?: string) =>
     findSingleton(h, KEY.lastRecords, o),
   creditUtilization: (h: HomeAssistant, o?: string) =>
