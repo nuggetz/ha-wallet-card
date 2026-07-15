@@ -1,0 +1,50 @@
+<svg width="1280" height="400" viewBox="0 0 1280 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- base -->
+  <rect width="1280" height="400" fill="#0B0E14"/>
+  <rect x="4" y="4" width="1272" height="392" fill="none" stroke="#E8ECF2" stroke-opacity="0.06" stroke-width="2"/>
+
+  <!-- HUD corner brackets -->
+  <g stroke="#E8ECF2" stroke-opacity="0.30" stroke-width="4" fill="none" stroke-linecap="square">
+    <path d="M40 78 V40 H78"/>
+    <path d="M1202 40 H1240 V78"/>
+    <path d="M1240 322 V360 H1202"/>
+    <path d="M78 360 H40 V322"/>
+  </g>
+
+  <!-- HUD readouts -->
+  <text x="64" y="52" font-family="DejaVu Sans Mono, monospace" font-size="13" letter-spacing="3" fill="#8892A4">HA//WALLET-CARD · LOVELACE://ui</text>
+  <text x="1216" y="52" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="13" letter-spacing="3" fill="#8892A4">37.235N 115.811W</text>
+  <circle cx="1150" cy="345" r="5" fill="#C6FF3A"/>
+  <text x="1166" y="350" font-family="DejaVu Sans Mono, monospace" font-size="13" letter-spacing="2" fill="#8892A4">HACS READY</text>
+
+  <!-- W mark tile (exact final logo, reused) -->
+  <g transform="translate(70,66) scale(0.52)">
+    <rect width="512" height="512" rx="112" fill="#0B0E14"/>
+    <rect x="6" y="6" width="500" height="500" rx="106" fill="none" stroke="#E8ECF2" stroke-opacity="0.09" stroke-width="2"/>
+    <g stroke="#E8ECF2" stroke-opacity="0.28" stroke-width="6" fill="none" stroke-linecap="square">
+      <path d="M60 100 V60 H100"/><path d="M412 60 H452 V100"/>
+      <path d="M452 412 V452 H412"/><path d="M100 452 H60 V412"/>
+    </g>
+    <g fill="none" stroke-width="46" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="7">
+      <polyline points="140,188 198,332 256,210 314,332 374,172" stroke="#C6FF3A" stroke-opacity="0.9" transform="translate(-7,4)"/>
+      <polyline points="140,188 198,332 256,210 314,332 374,172" stroke="#FF2E97" stroke-opacity="0.9" transform="translate(7,-4)"/>
+      <polyline points="140,188 198,332 256,210 314,332 374,172" stroke="#FF7A1A"/>
+    </g>
+  </g>
+
+  <!-- amber signature bar -->
+  <rect x="392" y="150" width="86" height="8" fill="#FF7A1A"/>
+
+  <!-- wordmark with RGB glitch split -->
+  <g transform="translate(390,230) scale(1.06,1)" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="80" letter-spacing="1">
+    <text x="0" y="0" fill="#C6FF3A" fill-opacity="0.9" transform="translate(-4,3)">ha-wallet-card</text>
+    <text x="0" y="0" fill="#FF2E97" fill-opacity="0.9" transform="translate(4,-3)">ha-wallet-card</text>
+    <text x="0" y="0" fill="#E8ECF2">ha-wallet-card</text>
+  </g>
+
+  <!-- tagline (mono) -->
+  <text x="392" y="286" font-family="DejaVu Sans Mono, monospace" font-size="19" letter-spacing="4" fill="#8892A4">LOVELACE CARDS · WALLET BY BUDGETBAKERS · UNOFFICIAL</text>
+
+  <!-- small nugg3tz sig -->
+  <text x="392" y="324" font-family="DejaVu Sans Mono, monospace" font-size="14" letter-spacing="3" fill="#FF7A1A">by nugg3tz</text>
+</svg>

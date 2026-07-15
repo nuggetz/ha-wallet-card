@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - name: Ensure dist is committed and up to date
+        run: |
+          if ! git diff --quiet -- dist/ha-wallet-card.js; then
+            echo "::error::dist/ha-wallet-card.js is out of date. Run 'npm run build' and commit."
+            git --no-pager diff --stat -- dist/ha-wallet-card.js
+            exit 1
+          fi

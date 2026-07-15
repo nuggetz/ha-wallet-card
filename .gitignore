@@ -1,0 +1,17 @@
+node_modules/
+*.log
+npm-debug.log*
+.DS_Store
+
+# Local-only AetherOS project context (not synced to GitHub)
+CLAUDE.md
+
+# VSCode workspace file (local dev convenience)
+*.code-workspace
+.cache/
+.rollup.cache/
+*.tsbuildinfo
+
+# dist/ is committed: HACS serves the built ha-wallet-card.js from the repo.
+# Keep the built bundle tracked; ignore stray map files from dev builds.
+dist/*.map
