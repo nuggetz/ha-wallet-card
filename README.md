@@ -4,6 +4,16 @@
 
 # ha-wallet-card
 
+> [!IMPORTANT]
+> **This repository is archived. The cards now ship with the integration.**
+> Since [ha-wallet `v0.1.2`](https://github.com/nuggetz/ha-wallet/releases/tag/v0.1.2) the
+> same 21 cards are bundled inside [**ha-wallet**](https://github.com/nuggetz/ha-wallet) and
+> load automatically once the integration is set up, with no plugin or dashboard resource to
+> install. ha-wallet is available in the HACS default store.
+>
+> If you installed this plugin, remove it from HACS (or delete its dashboard resource) and
+> reload the browser. Card types are unchanged, so your dashboards keep working.
+
 Lovelace card set for the [**Wallet by BudgetBakers**](https://github.com/nuggetz/ha-wallet)
 Home Assistant integration. Reproduces the Wallet web dashboard as native, theme-aware HA
 cards — analytics, a quick cash-entry keypad, and write-side action cards for records,
